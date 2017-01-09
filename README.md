@@ -9,7 +9,7 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
 * [Sample State](./docs/sample-state.md)
 
 ## Minimum Viable Product Checklist:
-- [ ] Users
+- [ ] Users and Authentication
 - [ ] User Profiles / Dashboard for each User
 - [ ] Teams
 - [ ] Projects
