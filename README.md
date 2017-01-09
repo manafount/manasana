@@ -10,6 +10,7 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
 
 ## Minimum Viable Product Checklist:
 - [ ] Users
+- [ ] User Profiles / Dashboard for each User
 - [ ] Teams
 - [ ] Projects
 - [ ] Tasks
@@ -30,7 +31,7 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
 - [ ] Create basic main navigation bar with links to dashboard (empty), tasks (empty) and sign out.
 - [ ] Implement React-Router and front-end routing
 
-### Phase 2: Models and API (2 days)
+### Phase 2: Models and API (1 day)
 
 **Objective:** Teams, Projects, and Tasks can be read, created, edited, and destroyed through the API.
 - [ ] Create `Team` model and controller
@@ -39,7 +40,11 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
 - [ ] Create jbuilder views for each controller
 - [ ] Verify correct API endpoint functionality through AJAX requests
 
-### Phase 3: Team Component (0.5 days)
+### Phase 3: User Profiles and Dashboard
+**Objective** Allow Users to view their profile settings via a drop-down box in the top right. User Dashboard shows
+- [ ]
+
+### Phase 4: Team Component (0.5 days)
 
 **Objective** Users should be able to create a team and invite other users via e-mail address or account name. Users should see their team members in the sidebar when browsing that team's projects.
 - [ ] Create `TeamContainer` React component
@@ -51,7 +56,7 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
 - [ ] Allow users to leave a team
   - [ ] Destroy team if team has 0 members, hide team's projects and tasks from the user after a user has left the team.
 
-### Phase 4: Project Components and Sidebar Navigation (2 days)
+### Phase 5: Project Components and Sidebar Navigation (2 days)
 
 **Objective:** Projects appear as a list of containers containing the project title and description on a user's dashboard. Projects can be created via a project form. Viewing a project shows a list of tasks.
 - [ ] Create `ProjectContainer` React component
@@ -64,7 +69,7 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
   - [ ] Sidebar shows a list of projects (both personal and team), and allows creation of a project from the sidebar.
 - [ ] Sidebar has a link to the team's calendar (bonus feature)
 
-### Phase 5: Task Components (1 day)
+### Phase 6: Task Components (1 day)
 
 **Objective:** Task creation, editing, completion, and deletion implemented.
 - [ ] Create `TaskContainer` React component
@@ -79,11 +84,11 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
 - [ ] Clicking on a task in the list shows the task's details and comments (bonus feature)
 - [ ] Task titles appear in the Calendar when given a due date (bonus feature)
 
-### Phase 6: Drag and Drop Task functionality (0.5 days)
+### Phase 7: Drag and Drop Task functionality (0.5 days)
 
 **objective:** Users should be able to drag tasks from one header to another in the task list.
 
-### Phase 7: - Styling and Cleanup (2 days)
+### Phase 8: - Styling and Cleanup (2 days)
 
 **objective:** Focus on usability by actual humans.
 - [ ] Use CSS to cleanly display components
