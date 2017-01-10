@@ -2,7 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import App from './app';
+import Splash from './splash';
+// import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 
 const Root = ({ store }) => {
@@ -10,24 +11,22 @@ const Root = ({ store }) => {
   const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
-      replace('/login');
+      replace('/');
     }
   };
 
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/dashboard');
     }
   };
 
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/" component={App}>
-          <div>
-            React works!
-          </div>
+        <Route path="/" component={Splash}>
+
         </Route>
       </Router>
     </Provider>
