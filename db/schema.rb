@@ -10,9 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170110014436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "team_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["team_id"], name: "index_projects_on_team_id", using: :btree
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name",                        null: false
+    t.text     "description"
+    t.date     "due"
+    t.boolean  "completed",   default: false
+    t.integer  "author_id",                   null: false
+    t.integer  "project_id",                  null: false
+    t.integer  "assignee_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["assignee_id"], name: "index_tasks_on_assignee_id", using: :btree
+    t.index ["author_id"], name: "index_tasks_on_author_id", using: :btree
+    t.index ["project_id"], name: "index_tasks_on_project_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",           null: false
+    t.string   "name",            null: false
+    t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
+    t.integer  "team_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["name"], name: "index_users_on_name", unique: true, using: :btree
+  end
 
 end

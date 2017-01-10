@@ -9,8 +9,10 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
 * [Sample State](./docs/sample-state.md)
 
 ## Minimum Viable Product Checklist:
-- [ ] Users and Authentication
-- [ ] User Profiles / Dashboard for each User
+- [ ] Hosting on Heroku
+- [ ] Production Readme
+- [ ] Authentication
+- [ ] Users
 - [ ] Teams
 - [ ] Projects
 - [ ] Tasks
@@ -40,7 +42,7 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
 - [ ] Create jbuilder views for each controller
 - [ ] Verify correct API endpoint functionality through AJAX requests
 
-### Phase 3: User and Team Components (0.5 days)
+### Phase 3: User and Team Components (1.5 days)
 
 **Objective** Users should be able to create a team and invite other users via e-mail address or account name. Users should see their team members in the sidebar when browsing that team's projects.
 - [ ] Create `UserProfile` React component
@@ -87,7 +89,7 @@ Manasana is a clone of the project management app [Asana](https://app.asana.com/
 
 **objective:** Users should be able to drag tasks from one header to another in the task list.
 
-### Phase 7: - Styling and Cleanup (2 days)
+### Phase 7: - Styling and Cleanup (1 days)
 
 **objective:** Focus on usability by actual humans.
 - [ ] Use CSS to cleanly display components

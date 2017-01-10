@@ -2,29 +2,33 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
+import App from './app';
+import SessionFormContainer from './session_form/session_form_container';
+
 const Root = ({ store }) => {
 
-  // **** Require LogIn Code ****
-  // const _ensureLoggedIn = (nextState, replace) => {
-  //   const currentUser = store.getState().session.currentUser;
-  //   if (!currentUser) {
-  //     replace('/login');
-  //   }
-  // };
-  //
-  // const _redirectIfLoggedIn = (nextState, replace) => {
-  //   const currentUser = store.getState().session.currentUser;
-  //   if (currentUser) {
-  //     replace('/');
-  //   }
-  // };
+  const _ensureLoggedIn = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    if (!currentUser) {
+      replace('/login');
+    }
+  };
+
+  const _redirectIfLoggedIn = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    if (currentUser) {
+      replace('/');
+    }
+  };
 
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <div>
-          React works!
-        </div>
+        <Route path="/" component={App}>
+          <div>
+            React works!
+          </div>
+        </Route>
       </Router>
     </Provider>
   );
