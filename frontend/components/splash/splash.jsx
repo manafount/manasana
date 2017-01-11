@@ -22,14 +22,12 @@ class Splash extends React.Component {
 
   redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
-			this.props.router.push("/dashboard");
+			this.props.router.push("/");
 		}
 	}
 
   handleDemoSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
-    console.log(this.props);
     const user = {email: "demo.user@manasana.io", password: "demouser"};
     this.props.processForm({user});
   }
@@ -55,16 +53,24 @@ class Splash extends React.Component {
   render () {
     return (
       <div className="splash-container">
+        <div className="splash-title">
+          <h2>manasana</h2>
+        </div>
         <div className="splash-form">
           <div className="col s12 m10 l8">
             <div className="card darken-1">
+              <div className="card-content center-align">
+                <h5>Log In</h5>
+              </div>
               <div className="card-content center-align">
                 <button onClick={this.handleDemoSubmit}
                         className="waves-effect waves-light btn-large demo-btn">
                   Demo Login
                 </button>
               </div>
-
+              <div className="card-content">
+                <hr/>
+              </div>
               <main>
                 <div className="card-content">
                   <label>Email Address</label>
