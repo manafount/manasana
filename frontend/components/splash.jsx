@@ -8,16 +8,16 @@ class Splash extends React.Component {
   render () {
     return (
       <div className="splash-container">
-        <div className="row">
-          <div className="col s12">
+        <div className="splash-form">
+          <div className="col s12 m10 l8">
             <div className="card darken-1">
-              <div className="center-align">
+              <div className="card-content center-align">
                 <button onClick={this.sendToLogin}
                         className="waves-effect waves-light btn-large demo-btn">
                   Demo Login
                 </button>
               </div>
-              
+
               <main>
                 <div className="card-content">
                   <label>Email Address</label>
@@ -26,6 +26,7 @@ class Splash extends React.Component {
                     name="user[email]"
                     id="email"
                     onChange={this.updateEmail}/>
+                  <label>Password</label>
                   <input
                     type="password"
                     name="user[password]"
