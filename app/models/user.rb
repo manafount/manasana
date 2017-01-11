@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string           not null
+#  name            :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  team_id         :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates :name, :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
@@ -9,8 +23,6 @@ class User < ApplicationRecord
   has_many :tasks,
   foreign_key: :author_id
 
-  belongs_to :team
-
   has_many :projects,
   through: :team,
   source: :projects
@@ -18,6 +30,8 @@ class User < ApplicationRecord
   has_many :teammates,
   through: :team,
   source: :members
+
+  attr_reader :password
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
@@ -52,7 +66,7 @@ class User < ApplicationRecord
   end
 
   def ensure_session_token_uniqueness
-    while User.find_by(session_token: self.sesssion_token)
+    while User.find_by(session_token: self.session_token)
       self.session_token = new_session_token
     end
   end
