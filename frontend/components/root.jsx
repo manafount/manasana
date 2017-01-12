@@ -6,7 +6,6 @@ import SplashContainer from './splash/splash_container';
 import Splash from './splash/splash';
 import App from './app';
 import Dashboard from './dashboard/dashboard';
-import SessionFormContainer from './session_form/session_form_container';
 
 const Root = ({ store }) => {
 

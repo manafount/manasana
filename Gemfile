@@ -48,6 +48,7 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'faker'
   # For heroku
   gem 'newrelic_rpm'
   gem 'rails_12factor' # error feedback
