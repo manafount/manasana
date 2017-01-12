@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router';
 class SignUp extends React.Component {
   constructor(props) {
 		super(props);
-		this.state = { email: "", password: "" };
+		this.state = { name: "", email: "", password: "" };
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -44,25 +44,31 @@ class SignUp extends React.Component {
 
   render () {
     return (
-      <div className="splash-container">
+      <div className="splash-container row">
         <div className="splash-title">
           <h2>manasana</h2>
         </div>
         <div className="splash-form">
-          <div className="col s12 m10 l8">
+          <div>
             <div className="card darken-1">
               <div className="card-content center-align">
                 <h5>Sign Up</h5>
               </div>
               <main>
                 <div className="card-content">
-                  <label>Email Address</label>
+                  <label for="name">Full Name</label>
+                  <input
+                    type="text"
+                    name="user[name]"
+                    id="name"
+                    onChange={this.update('name')}/>
+                  <label for="email">Email Address</label>
                   <input
                     type="text"
                     name="user[email]"
                     id="email"
                     onChange={this.update('email')}/>
-                  <label>Password</label>
+                  <label for="password">Password</label>
                   <input
                     type="password"
                     name="user[password]"
@@ -71,11 +77,19 @@ class SignUp extends React.Component {
                   <div className="right-align">
                     <button onClick={this.handleSubmit}
                       className="waves-effect waves-light btn-large center-align demo-btn">
-                      Sign In
+                      Sign Up
                     </button>
                   </div>
                 </div>
               </main>
+            </div>
+          </div>
+          <div className="login-footer">
+            <div className="login-footer-left">
+              Link 1 | Link 2 | Link 3
+            </div>
+            <div className="login-footer-right">
+              Already have an account? <Link to="/login">Log In!</Link>
             </div>
           </div>
         </div>

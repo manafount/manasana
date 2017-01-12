@@ -16,7 +16,7 @@ hr {
 	border-top: 1px solid #8c8b8b;
 	text-align: center;
 }
-hr:after {
+hr.or:after {
 	content: 'or';
 	display: inline-block;
 	position: relative;
@@ -27,13 +27,22 @@ hr:after {
 	font-size: 18px;
 }
 
+.login-footer {
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
 .splash-title {
   font-family: Lemonada;
   color: white;
 }
 
 .splash-form {
+  width: 500px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
