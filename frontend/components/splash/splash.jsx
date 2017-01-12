@@ -14,14 +14,16 @@ class Splash extends React.Component {
         <SignUp
           processForm={this.props.processForm}
           loggedIn={this.props.loggedIn}
-          errors={this.props.errors}/>
+          errors={this.props.errors}
+          clearSessionErrors={this.props.clearSessionErrors}/>
       );
     }else{
       return (
         <Login
           processForm={this.props.processForm}
           loggedIn={this.props.loggedIn}
-          errors={this.props.errors}/>
+          errors={this.props.errors}
+          clearSessionErrors={this.props.clearSessionErrors}/>
       );
     }
   }

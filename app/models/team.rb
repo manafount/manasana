@@ -14,9 +14,9 @@ class Team < ApplicationRecord
 
   has_many :memberships
 
-  has_one :leader,
-  through: :memberships,
-  source: :user
+  belongs_to :leader,
+  foreign_key: :leader_id,
+  class_name: :User
 
   has_many :projects
 end

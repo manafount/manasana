@@ -14,6 +14,12 @@ class SignUp extends React.Component {
     this.redirectIfLoggedIn();
   }
 
+  componentWillReceiveProps() {
+    if(this.props.errors){
+      this.props.clearSessionErrors();
+    }
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -32,8 +38,7 @@ class SignUp extends React.Component {
   }
 
   renderErrors() {
-    console.log(this.props.errors);
-    if(this.props.errors !== undefined){
+    if(this.props.errors !== null){
       return(
         <ul>
           {this.props.errors.map((error, i) => (
@@ -53,7 +58,7 @@ class SignUp extends React.Component {
           <h2>manasana</h2>
         </div>
         <div className="splash-form">
-          <div>
+          <div className="splash-card">
             <div className="card darken-1">
               <div className="card-content center-align">
                 <h5>Sign Up</h5>

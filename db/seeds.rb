@@ -7,3 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 User.create(email: "demo.user@manasana.io", name: "Matt", team_id: 1, password: "demouser")
+5.times do |i|
+  User.create(email: Faker::Internet.email, name: Faker::Name.name, team_id: 1, password: "password#{i}")
+end
+
+Team.destroy_all
+Team.create(name: Faker::Company.name, leader: User.first)

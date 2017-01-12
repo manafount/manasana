@@ -32,6 +32,12 @@ class Login extends React.Component {
     this.props.processForm({user});
   }
 
+  componentWillReceiveProps() {
+    if(this.props.errors){
+      this.props.clearSessionErrors();
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
@@ -39,7 +45,7 @@ class Login extends React.Component {
   }
 
   renderErrors() {
-    if(this.props.errors !== undefined){
+    if(this.props.errors !== null){
       return(
         <ul>
           {this.props.errors.map((error, i) => (
@@ -59,7 +65,7 @@ class Login extends React.Component {
           <h2>manasana</h2>
         </div>
         <div className="splash-form">
-          <div>
+          <div className="splash-card">
             <div className="card darken-1">
               <div className="card-content center-align">
                 <h5>Log In</h5>

@@ -26,8 +26,9 @@ class User < ApplicationRecord
   has_one :membership
 
   has_one :team,
-  through: :membership
-  
+  through: :membership,
+  source: :teams
+
   has_many :projects,
   through: :team,
   source: :projects

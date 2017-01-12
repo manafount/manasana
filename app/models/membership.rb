@@ -11,4 +11,8 @@
 
 class Membership < ApplicationRecord
   validates :user_id, :team_id, presence: true
+
+  has_many :users
+
+  has_many :teams
 end
