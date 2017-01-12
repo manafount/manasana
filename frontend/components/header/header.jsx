@@ -20,7 +20,7 @@ class Header extends React.Component {
         <div className="row">
           <div className="col s12">
             <ul>
-              <li>
+              <li className="show-sidebar-menu">
                 <a href="#"
                    onClick={this.expandSidebar}>
                    <i className="small material-icons">reorder</i>

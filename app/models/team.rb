@@ -12,13 +12,11 @@
 class Team < ApplicationRecord
   validates :name, :leader_id, presence: true
 
-  has_many :members,
-  foreign_key: :user_id,
-  class_name: :User
+  has_many :memberships
 
   has_one :leader,
-  foreign_key: :user_id,
-  class_name: :User
+  through: :memberships,
+  source: :user
 
   has_many :projects
 end

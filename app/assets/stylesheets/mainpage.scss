@@ -3,11 +3,32 @@
   height: 100%;
 }
 
+nav {
+    height: 64px;
+    line-height: 64px;
+}
+
+.material-icons {
+    line-height: 64px;
+}
+
 .main-page {
     width: 100%;
 }
 
+.show-sidebar {
+}
+
 .sidebar-container {
   height: 100%;
+  width: 240px;
   color: red;
+}
+
+.side-expanded {
+
+}
+
+.side-collapsed {
+
 }

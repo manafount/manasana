@@ -23,6 +23,11 @@ class User < ApplicationRecord
   has_many :tasks,
   foreign_key: :author_id
 
+  has_one :membership
+
+  has_one :team,
+  through: :membership
+  
   has_many :projects,
   through: :team,
   source: :projects
