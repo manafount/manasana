@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-
+import { Row, Input } from 'react-materialize';
 
 class SignUp extends React.Component {
   constructor(props) {
