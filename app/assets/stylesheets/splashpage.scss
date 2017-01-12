@@ -11,6 +11,10 @@ html, body, #root {
   justify-content: center;
 }
 
+.errors {
+  color: $error-color;
+}
+
 hr {
   width: 80%;
 	border-top: 1px solid #8c8b8b;

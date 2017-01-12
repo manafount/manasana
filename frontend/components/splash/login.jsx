@@ -39,15 +39,17 @@ class Login extends React.Component {
   }
 
   renderErrors() {
-		return(
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
+    if(this.props.errors !== undefined){
+      return(
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
 	}
 
   render () {
@@ -70,6 +72,9 @@ class Login extends React.Component {
               </div>
               <div className="card-content">
                 <hr className="or"/>
+              </div>
+              <div className="errors card-content">
+                {this.renderErrors()}
               </div>
               <main>
                 <div className="card-content">

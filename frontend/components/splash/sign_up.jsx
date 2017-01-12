@@ -7,6 +7,7 @@ class SignUp extends React.Component {
 		super(props);
 		this.state = { name: "", email: "", password: "" };
 		this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
 	}
 
   componentDidUpdate() {
@@ -31,15 +32,18 @@ class SignUp extends React.Component {
   }
 
   renderErrors() {
-		return(
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
+    console.log(this.props.errors);
+    if(this.props.errors !== undefined){
+      return(
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
 	}
 
   render () {
@@ -54,21 +58,24 @@ class SignUp extends React.Component {
               <div className="card-content center-align">
                 <h5>Sign Up</h5>
               </div>
+              <div className="errors card-content">
+                {this.renderErrors()}
+              </div>
               <main>
                 <div className="card-content">
-                  <label for="name">Full Name</label>
+                  <label htmlFor="name">Full Name</label>
                   <input
                     type="text"
                     name="user[name]"
                     id="name"
                     onChange={this.update('name')}/>
-                  <label for="email">Email Address</label>
+                  <label htmlFor="email">Email Address</label>
                   <input
                     type="text"
                     name="user[email]"
                     id="email"
                     onChange={this.update('email')}/>
-                  <label for="password">Password</label>
+                  <label htmlFor="password">Password</label>
                   <input
                     type="password"
                     name="user[password]"
@@ -90,7 +97,7 @@ class SignUp extends React.Component {
             </div>
             <div className="login-footer-right">
               Already have an account? <Link to="/login">Log In!</Link>
-            </div>
+          </div>
           </div>
         </div>
       </div>
