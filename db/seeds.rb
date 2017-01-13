@@ -13,3 +13,8 @@ end
 
 Team.destroy_all
 Team.create(name: Faker::Company.name, leader: User.first)
+
+Membership.destroy_all
+User.all.each do |user|
+  Membership.create(user: user, team: Team.first)
+end

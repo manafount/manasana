@@ -6,10 +6,27 @@ class Sidebar extends React.Component {
     super(props);
   }
 
+  expandSidebar() {
+    $('#sidebar-wrapper').toggleClass('sidebar-active');
+  }
+
   render() {
     return (
-      <div className="sidebar-container z-depth-2">
-        sidebar
+      <div className="z-depth-2"
+           id="sidebar-wrapper">
+        <div className="sidebar-header">
+          <div className=""
+            id="logo">
+            manasana
+          </div>
+          <div>
+            <a href="#"
+               id="close-sidebar"
+               onClick={this.expandSidebar}>
+              <i className="fa fa-times"></i>
+            </a>
+          </div>
+        </div>
       </div>
     );
   }

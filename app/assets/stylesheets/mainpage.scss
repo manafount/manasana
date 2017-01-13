@@ -24,7 +24,7 @@ i.material-icons {
   justify-content: space-between;
 
   a {
-    color: #898e95;
+    color: $link-grey;
   }
 
   a:hover {
@@ -36,16 +36,58 @@ i.material-icons {
     width: 100%;
 }
 
-.sidebar-container {
+#header-wrapper {
+  display: flex;
+}
+
+#sidebar-wrapper {
+  overflow-x: hidden;
+  position: fixed;
   height: 100%;
-  width: 200px;
-  background: #7BB3E8;
+  left: -220px;
+  transition: 0.5s;
+  width: 220px;
+  background: $darkest-blue;
+  display: flex;
+  flex-direction: column;
+
+  .sidebar-header {
+    display: flex;
+    justify-content: space-around;
+    height: 48px;
+  }
+
+  #logo {
+    color: white;
+    font: Lemonada;
+    font-size: 1.75em;
+    line-height: 48px;
+  }
+
+  i {
+    color: white;
+    font-size: 1.5em;
+    line-height: 48px;
+  }
+
+  i:hover{
+    color: $dark-blue;
+  }
 }
 
-.side-expanded {
+.show-sidebar-menu {
+  padding-left: 10px;
 
+  a {
+    color: $link-grey;
+  }
+
+  a:hover {
+    color: $dark-blue;
+  }
 }
 
-.side-collapsed {
-
+.sidebar-active {
+  left: 0px !important;
+  transition: 0.5s;
 }

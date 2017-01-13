@@ -17,6 +17,12 @@
 class Task < ApplicationRecord
   validates :name, :author_id, :project_id, presence: true
 
-  belongs_to :author;
+  belongs_to :author,
+  class_name: :User
+
+  belongs_to :assignee,
+  class_name: :User
+
+  belongs_to :project
 
 end

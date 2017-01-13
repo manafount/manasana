@@ -10,9 +10,9 @@
 #
 
 class Membership < ApplicationRecord
-  validates :user_id, :team_id, presence: true
+  validates :user, :team, presence: true
 
-  has_many :users
+  belongs_to :user
 
-  has_many :teams
+  belongs_to :team
 end

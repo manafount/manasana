@@ -23,14 +23,18 @@ class User < ApplicationRecord
   has_many :tasks,
   foreign_key: :author_id
 
+  has_many :assigned_tasks,
+  foreign_key: :assignee_id,
+  class_name: :Task
+
   has_one :membership
 
   has_one :team,
   through: :membership,
-  source: :teams
+  source: :team
 
   has_many :projects,
-  through: :team,
+  through: :tasks,
   source: :projects
 
   has_many :teammates,
