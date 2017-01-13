@@ -3,14 +3,33 @@
   height: 100%;
 }
 
-nav.header-nav {
+.header-nav {
+  height: 48px;
+  line-height: 48px;
+
+  div, ul, li {
+    height: 100%;
+  }
+
+}
+
+i.material-icons {
   height: 48px;
   line-height: 48px;
 }
 
-nav i.material-icons {
-  height: 48px;
-  line-height: 48px;
+.header-links {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    color: #898e95;
+  }
+
+  a:hover {
+    color: $dark-blue;
+  }
 }
 
 .main-page {

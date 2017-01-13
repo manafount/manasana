@@ -16,15 +16,17 @@ class Header extends React.Component {
 
   render() {
     return (
-      <nav className="header-nav">
-        <div className="row">
-          <div className="col s12">
+      <div className="header-nav z-depth-1">
+        <div className="">
+          <div className="container">
             <ul className="header-links">
               <li className="show-sidebar-menu">
-                <a href="#"
-                   onClick={this.expandSidebar}>
-                   <i className="small material-icons">reorder</i>
-                </a>
+                <div>
+                  <a href="#"
+                    onClick={this.expandSidebar}>
+                    <i className="small material-icons">reorder</i>
+                  </a>
+                </div>
               </li>
               <li>
                 <a href="#/"
@@ -54,7 +56,7 @@ class Header extends React.Component {
             </ul>
           </div>
         </div>
-      </nav>
+      </div>
     );
   }
 }
