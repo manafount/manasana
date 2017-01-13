@@ -8,7 +8,7 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <div className="sidebar-container">
+      <div className="sidebar-container z-depth-2">
         sidebar
       </div>
     );

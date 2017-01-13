@@ -19,7 +19,7 @@ class Header extends React.Component {
       <nav className="header-nav">
         <div className="row">
           <div className="col s12">
-            <ul>
+            <ul className="header-links">
               <li className="show-sidebar-menu">
                 <a href="#"
                    onClick={this.expandSidebar}>

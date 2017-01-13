@@ -68,24 +68,26 @@ class SignUp extends React.Component {
               </div>
               <main>
                 <div className="card-content">
-                  <label htmlFor="name">Full Name</label>
-                  <input
-                    type="text"
-                    name="user[name]"
-                    id="name"
-                    onChange={this.update('name')}/>
-                  <label htmlFor="email">Email Address</label>
-                  <input
-                    type="text"
-                    name="user[email]"
-                    id="email"
-                    onChange={this.update('email')}/>
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type="password"
-                    name="user[password]"
-                    id="password"
-                    onChange={this.update('password')}/>
+                  <Row>
+                    <Input type="text"
+                      name="user[name]"
+                      label="Full Name"
+                      s={12}
+                      onChange={this.update('name')}>
+                    </Input>
+                    <Input type="text"
+                      name="user[email]"
+                      label="Email Address"
+                      s={12}
+                      onChange={this.update('email')}>
+                    </Input>
+                    <Input type="text"
+                      name="user[password]"
+                      label="Password"
+                      s={12}
+                      onChange={this.update('password')}>
+                    </Input>
+                  </Row>
                   <div className="right-align">
                     <button onClick={this.handleSubmit}
                       className="waves-effect waves-light btn-large center-align demo-btn">
