@@ -32,7 +32,9 @@ class Sidebar extends React.Component {
           </div>
         </div>
         <hr/>
-
+        <div className="sidebar-category">
+          Team
+        </div>
         <div className="team-list container">
           <div className="circle-avatar-sm">
             MK

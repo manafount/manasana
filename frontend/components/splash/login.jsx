@@ -101,7 +101,7 @@ class Login extends React.Component {
                   <div className="right-align">
                     <button onClick={this.handleSubmit}
                       className="waves-effect waves-light btn-large center-align demo-btn">
-                      Sign Up
+                      Log In
                     </button>
                   </div>
                 </div>
