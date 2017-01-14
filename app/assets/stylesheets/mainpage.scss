@@ -13,6 +13,55 @@
 
 }
 
+.empty-sm {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  line-height: 24px;
+  background: $blue-black;
+}
+
+.circle-avatar-sm {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid white;
+  font-size: 12px;
+  color: white;
+  line-height: 24px;
+  text-align: center;
+  background: $grey;
+}
+
+.circle-avatar-med {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid white;
+  font-size: 18px;
+  color: white;
+  line-height: 36px;
+  text-align: center;
+  background: $grey;
+}
+
+.circle-avatar-lg {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid white;
+  font-size: 24px;
+  color: white;
+  line-height: 48px;
+  text-align: center;
+  background: $grey;
+}
+
+.team-list {
+  display: flex;
+  justify-content: space-around;
+}
+
 i.material-icons {
   height: 48px;
   line-height: 48px;

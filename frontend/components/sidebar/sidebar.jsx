@@ -10,6 +10,10 @@ class Sidebar extends React.Component {
     $('#sidebar-wrapper').toggleClass('sidebar-active');
   }
 
+  createAvatar(size) {
+
+  }
+
   render() {
     return (
       <div className="z-depth-2"
@@ -25,6 +29,21 @@ class Sidebar extends React.Component {
                onClick={this.expandSidebar}>
               <i className="fa fa-times"></i>
             </a>
+          </div>
+        </div>
+        <hr/>
+
+        <div className="team-list container">
+          <div className="circle-avatar-sm">
+            MK
+          </div>
+          <div className="empty-sm">
+          </div>
+          <div className="empty-sm">
+          </div>
+          <div className="empty-sm">
+          </div>
+          <div className="empty-sm">
           </div>
         </div>
       </div>
