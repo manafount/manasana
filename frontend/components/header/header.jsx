@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { logout } from '../../util/session_api_util';
-import { fetchTeam, fetchTeams } from '../../util/team_api_util';
+import { Dropdown, Nav, NavItem } from 'react-materialize';
 
 class Header extends React.Component {
   constructor(props) {
@@ -19,9 +19,12 @@ class Header extends React.Component {
     $('#sidebar-wrapper').toggleClass('sidebar-active');
   }
 
+  componentDidMount() {
+    this.props.fetchTeams();
+  }
+
   showTeamsIndex() {
-    let teams = this.props.fetchTeams()
-      .then((teams) => console.log(teams));
+    console.log(this.props.teams);
   }
 
   render() {
@@ -50,9 +53,9 @@ class Header extends React.Component {
               </li>
               <li>
                 <a href="#"
-                      className="teams-dropdown"
-                      onClick={this.showTeamsIndex}>
-                      My Teams
+                  className="teams-dropdown"
+                  onClick={this.showTeamsIndex}>
+                  My Teams
                 </a>
               </li>
               <li>
