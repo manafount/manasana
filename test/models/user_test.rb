@@ -7,7 +7,6 @@
 #  name            :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  team_id         :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #

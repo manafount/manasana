@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import TeamList from './team_list';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -31,22 +32,11 @@ class Sidebar extends React.Component {
             </a>
           </div>
         </div>
-        <hr/>
-        <div className="sidebar-category">
-          Team
-        </div>
-        <div className="team-list container">
-          <div className="circle-avatar-sm">
-            MK
+        <div className="sidebar-main">
+          <div className="sidebar-category">
+            Team
           </div>
-          <div className="empty-sm">
-          </div>
-          <div className="empty-sm">
-          </div>
-          <div className="empty-sm">
-          </div>
-          <div className="empty-sm">
-          </div>
+          <TeamList user={this.props.user}/>
         </div>
       </div>
     );

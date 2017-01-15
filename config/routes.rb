@@ -1,60 +1,15 @@
 Rails.application.routes.draw do
 
-  namespace :api do
-    get 'teams/show'
-  end
-
-  namespace :api do
-    get 'teams/create'
-  end
-
-  namespace :api do
-    get 'teams/update'
-  end
-
-  namespace :api do
-    get 'projects/index'
-  end
-
-  namespace :api do
-    get 'projects/show'
-  end
-
-  namespace :api do
-    get 'projects/create'
-  end
-
-  namespace :api do
-    get 'projects/update'
-  end
-
-  namespace :api do
-    get 'projects/destroy'
-  end
-
-  namespace :api do
-    get 'tasks/index'
-  end
-
-  namespace :api do
-    get 'tasks/show'
-  end
-
-  namespace :api do
-    get 'tasks/create'
-  end
-
-  namespace :api do
-    get 'tasks/update'
-  end
-
-  namespace :api do
-    get 'tasks/destroy'
-  end
-
   namespace :api, defaults: { format: :json } do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy, :show]
+    resources :teams, only: [:create, :update, :index, :show] do
+      resources :projects, only: [:index, :create]
+      resources :tasks, only: [:index, :create, :destroy]
+    end
+    resources :tasks, only: [:update, :destroy, :show] do
+      resources :comments, only: [:index, :create]
+    end
   end
 
   root "static_pages#root"

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { logout } from '../../util/session_api_util';
+import { fetchTeam, fetchTeams } from '../../util/team_api_util';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
+    this.showTeamsIndex = this.showTeamsIndex.bind(this);
   }
 
   handleLogout() {
@@ -15,6 +17,11 @@ class Header extends React.Component {
 
   expandSidebar() {
     $('#sidebar-wrapper').toggleClass('sidebar-active');
+  }
+
+  showTeamsIndex() {
+    let teams = this.props.fetchTeams()
+      .then((teams) => console.log(teams));
   }
 
   render() {
@@ -40,6 +47,13 @@ class Header extends React.Component {
                       data-target="#tasks">
                       My Tasks
                 </Link>
+              </li>
+              <li>
+                <a href="#"
+                      className="teams-dropdown"
+                      onClick={this.showTeamsIndex}>
+                      My Teams
+                </a>
               </li>
               <li>
                 <Link to="/calendar"

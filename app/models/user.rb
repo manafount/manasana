@@ -7,7 +7,6 @@
 #  name            :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  team_id         :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -29,7 +28,7 @@ class User < ApplicationRecord
 
   has_one :membership
 
-  has_one :team,
+  has_many :teams,
   through: :membership,
   source: :team
 
@@ -38,7 +37,7 @@ class User < ApplicationRecord
   source: :projects
 
   has_many :teammates,
-  through: :team,
+  through: :teams,
   source: :members
 
   attr_reader :password

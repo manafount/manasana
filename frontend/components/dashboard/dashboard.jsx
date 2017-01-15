@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
+import ProjectsContainer from '../projects/projects_container';
+
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <div>Dashboard</div>
+        <ProjectsContainer/>
       </div>
     );
   }

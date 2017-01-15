@@ -33,6 +33,52 @@
   background: $grey;
 }
 
+.circle-plus-sm {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid white;
+  font-size: 16px;
+  color: white;
+  line-height: 22px;
+  text-align: center;
+}
+
+.circle-plus-sm:before {
+  content: "+";
+}
+
+.circle-plus-sm:hover {
+  transition: box-shadow 0.5s ease-in-out;
+  -webkit-box-shadow: 0px 0px 30px 0px white;
+  -moz-box-shadow:    0px 0px 30px 0px white;
+  box-shadow:         0px 0px 30px 0px white;
+  cursor: pointer;
+}
+
+.circle-plus-med {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid white;
+  font-size: 28px;
+  color: white;
+  line-height: 34px;
+  text-align: center;
+}
+
+.circle-plus-med:before {
+  content: "+";
+}
+
+.circle-plus-med:hover {
+  transition: box-shadow 0.5s ease-in-out;
+  -webkit-box-shadow: 0px 0px 30px 0px white;
+  -moz-box-shadow:    0px 0px 30px 0px white;
+  box-shadow:         0px 0px 30px 0px white;
+  cursor: pointer;
+}
+
 .circle-avatar-med {
   width: 36px;
   height: 36px;
@@ -58,8 +104,13 @@
 }
 
 .team-list {
+  width: 80%;
   display: flex;
-  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+.team-list > * {
+  margin: 0 0 5px 5px;
 }
 
 i.material-icons {
@@ -104,6 +155,7 @@ i.material-icons {
     display: flex;
     justify-content: space-around;
     height: 48px;
+    padding-bottom: 80px;
   }
 
   #logo {
@@ -124,9 +176,14 @@ i.material-icons {
   }
 }
 
+.sidebar-main {
+  padding-left: 18px;
+}
+
 .sidebar-category {
   text-transform: uppercase;
   font-weight: bold;
+  color: white;
 }
 
 .show-sidebar-menu {
