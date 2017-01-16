@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import { Row, Input } from 'react-materialize';
+import TextField from 'material-ui/TextField';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -37,6 +40,11 @@ class SignUp extends React.Component {
     this.props.processForm({user});
   }
 
+  handleGoogleSignUp(e) {
+    e.preventDefault();
+    console.log("this doesn't actually work lol");
+  }
+
   renderErrors() {
     if(this.props.errors !== null){
       return(
@@ -53,51 +61,55 @@ class SignUp extends React.Component {
 
   render () {
     return (
-      <div className="splash-container row">
+      <div className="splash-container">
         <div className="splash-title">
-          <h2>manasana</h2>
+          manasana
         </div>
         <div className="splash-form">
-          <div className="splash-card">
-            <div className="card darken-1">
-              <div className="card-content center-align">
-                <h5>Sign Up</h5>
-              </div>
-              <div className="errors card-content">
-                {this.renderErrors()}
-              </div>
-              <main>
-                <div className="card-content">
-                  <Row>
-                    <Input type="text"
-                      name="user[name]"
-                      label="Full Name"
-                      s={12}
-                      onChange={this.update('name')}>
-                    </Input>
-                    <Input type="text"
-                      name="user[email]"
-                      label="Email Address"
-                      s={12}
-                      onChange={this.update('email')}>
-                    </Input>
-                    <Input type="text"
-                      name="user[password]"
-                      label="Password"
-                      s={12}
-                      onChange={this.update('password')}>
-                    </Input>
-                  </Row>
-                  <div className="right-align">
-                    <button onClick={this.handleSubmit}
-                      className="waves-effect waves-light btn-large center-align demo-btn">
-                      Sign Up
-                    </button>
-                  </div>
-                </div>
-              </main>
+          <Card className="splash-card">
+            <div>
+              <h1>Sign Up</h1>
             </div>
-          </div>
+            <div>
+              <RaisedButton onClick={this.handleGoogleSignUp}
+                      className="demo-btn"
+                      label="Google Login"
+                      icon={<FontIcon className="fa fa-google-plus" />}
+                      primary={true}>
+              </RaisedButton>
+            </div>
+            <hr className="or"/>
+            <div className="errors">
+              {this.renderErrors()}
+            </div>
+            <TextField type="text"
+              name="user[email]"
+              floatingLabelText="Email Address"
+              fullWidth={true}
+              style={{width:'80%'}}
+              onChange={this.update('email')}>
+            </TextField>
+            <TextField type="text"
+              name="user[name]"
+              floatingLabelText="Full Name"
+              fullWidth={true}
+              style={{width:'80%'}}
+              onChange={this.update('name')}>
+            </TextField>
+            <TextField type="password"
+              name="user[password]"
+              floatingLabelText="Password"
+              fullWidth={true}
+              style={{width:'80%'}}
+              onChange={this.update('password')}>
+            </TextField>
+            <div className="right-align">
+              <RaisedButton onClick={this.handleSubmit}
+                            label="Sign Up"
+                            secondary={true}>
+              </RaisedButton>
+            </div>
+          </Card>
           <div className="login-footer">
             <div className="login-footer-left">
               Link 1 | Link 2 | Link 3

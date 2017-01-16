@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { logout } from '../../util/session_api_util';
-import { Dropdown, Nav, NavItem } from 'react-materialize';
 
 class Header extends React.Component {
   constructor(props) {

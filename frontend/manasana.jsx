@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
 
 import { login, logout, signup } from './util/session_api_util';
 
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.login = login;
   window.logout = logout;
   window.signup = signup;
+  injectTapEventPlugin();
 
   let store;
   if (window.currentUser) {

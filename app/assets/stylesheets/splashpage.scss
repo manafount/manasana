@@ -8,15 +8,17 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content:center;
 }
 
 .errors {
-  color: $error-color;
+  color: red;
 }
 
 hr {
+  margin-top: 20px;
   width: 80%;
+  height: 1px;
 	border-top: 1px solid #8c8b8b;
 	text-align: center;
 }
@@ -34,18 +36,38 @@ hr.or:after {
 .login-footer {
   width: 100%;
   color: white;
+  padding-top: 5px;
   display: flex;
   justify-content: space-between;
 }
 
+.right-align {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 80%;  
+}
+
+.splash-card > * {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .splash-title {
+  font-size: 2em;
   font-family: Lemonada;
   color: white;
 }
 
 .splash-card {
-  min-height: 350px;
+  min-height: 500px;
   width: 100%;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .splash-form {
