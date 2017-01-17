@@ -5,7 +5,8 @@ import { fetchTeam, fetchTeams, createTeam } from '../../actions/team_actions';
 import Header from './header';
 
 const mapStateToProps = (state) => ({
-  teams: state.teams
+  teams: state.teams,
+  currentTeam: state.currentTeam
 });
 
 const mapDispatchToProps = dispatch => ({

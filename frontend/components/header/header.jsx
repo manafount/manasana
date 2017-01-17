@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { logout } from '../../util/session_api_util';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      teamsExpanded: false
+    };
     this.handleLogout = this.handleLogout.bind(this);
-    this.showTeamsIndex = this.showTeamsIndex.bind(this);
+    this.toggleTeamsDropdown = this.toggleTeamsDropdown.bind(this);
+    this.selectTeam = this.selectTeam.bind(this);
   }
 
   handleLogout() {
@@ -22,11 +28,27 @@ class Header extends React.Component {
     this.props.fetchTeams();
   }
 
-  showTeamsIndex() {
-    console.log(this.props.teams);
+  toggleTeamsDropdown() {
+    this.setState( { teamsExpanded: !this.state.teamsExpanded });
+  }
+
+  selectTeam(id) {
+    this.props.fetchTeam(id);
+    this.toggleTeamsDropdown();
   }
 
   render() {
+    let teamList;
+
+    if (this.props.teams) {
+      teamList = Object.keys(this.props.teams).map((id) => (
+        <li key={id}
+            onClick={() => this.selectTeam(this.props.teams[id].id)}>
+          {this.props.teams[id].name}
+        </li>
+      ));
+    }
+
     return (
       <div className="header-nav z-depth-1">
         <div id="header-wrapper">
@@ -36,7 +58,7 @@ class Header extends React.Component {
               <i className="small material-icons">reorder</i>
             </a>
           </div>
-          <div className="container">
+          <div className="header-container">
             <ul className="header-links">
               <li>
                 <a href="#/"
@@ -53,9 +75,15 @@ class Header extends React.Component {
               <li>
                 <a href="#"
                   className="teams-dropdown"
-                  onClick={this.showTeamsIndex}>
+                  onClick={this.toggleTeamsDropdown}>
                   My Teams
                 </a>
+                <div id="team-list"
+                     className={ this.state.teamsExpanded ? "expanded" : "collapsed"}>
+                     <ul>
+                       {teamList}
+                     </ul>
+                </div>
               </li>
               <li>
                 <Link to="/calendar"
@@ -63,14 +91,14 @@ class Header extends React.Component {
                       Calendar
                 </Link>
               </li>
-              <li>
-                <Link to="/login"
-                      data-target="#login"
-                      onClick={this.handleLogout}>
-                      Log Out
-                </Link>
-              </li>
             </ul>
+            <div className="user-profile">
+              <Link to="/login"
+                data-target="#login"
+                onClick={this.handleLogout}>
+                Log Out
+              </Link>
+            </div>
           </div>
         </div>
       </div>

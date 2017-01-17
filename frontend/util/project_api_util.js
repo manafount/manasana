@@ -1,34 +1,32 @@
-var ServerActions = require("../actions/serverActions");
+import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
+import { receiveTeam, receiveTeams, receiveTeamErrors } from '../actions/team_actions';
 
-var ProjectApiUtil = {
-
-  createProject: function(project) {
-    $.ajax({
-      type: "POST",
-      url: "/api/teams/" + project.team_id + "/projects",
-      data: { project: project },
-      success: function (data) {
-        ServerActions.receiveProject(data.project);
-      },
-      error: function (data) {
-        var errors = data.responseJSON.errors;
-        if (errors) {
-          ServerActions.receiveProjectErrors(errors);
-        }
-      }
-    });
-  },
-
-  fetchProjects: function (teamId) {
-    $.ajax({
-      type: "GET",
-      url: "/api/teams/" + teamId + "/projects",
-      success: function (data) {
-        ServerActions.receiveAllProjects(data.team);
-      }
-    });
-  }
-
+export const createTeam = (team) => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/teams',
+    data: team
+  });
 };
 
-module.exports = ProjectApiUtil;
+export const fetchTeams = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/teams'
+  });
+};
+
+export const fetchTeam = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/teams/${id}`
+  });
+};
+
+export const editTeam = (team) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/teams/${team.id}`,
+    data: team
+  });
+};

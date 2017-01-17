@@ -7,9 +7,16 @@ class ProjectsIndex extends React.Component {
     super(props);
   }
 
+
+
   render() {
     return (
-      <div>I work!</div>
+      <div>
+        <div>I work!</div>
+        <div>Current Team: 
+          {this.props.currentTeam ? this.props.currentTeam.name : 'none'}
+        </div>
+      </div>
     );
   }
 }
