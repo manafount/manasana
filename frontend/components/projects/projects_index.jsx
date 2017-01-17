@@ -26,11 +26,12 @@ class ProjectsIndex extends React.Component {
         </Paper>
         <Paper zDepth={1}
                className="add-project">
-          <FlatButton className="add-project-btn"
+          <FlatButton id="add-project-btn"
                       label="Add Project"
                       primary={true}
                       hoverColor={'white'}
                       style={{color: this.props.muiTheme.palette.primary1Color,
+                              border: '1px solid',
                               borderColor: this.props.muiTheme.palette.primary1Color}}/>
         </Paper>
       </div>

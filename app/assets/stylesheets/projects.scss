@@ -1,0 +1,35 @@
+.project-list {
+  margin-top: 20px;
+  margin-left: 220px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.project-item {
+  background: white;
+  margin: 10px;
+  height: 300px;
+  width: 300px;
+}
+
+.add-project {
+  background: white;
+  margin: 10px;
+  height: 300px;
+  width: 300px;
+  border: 1px dashed $grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-project:hover {
+
+}
+
+#add-project-btn {
+}
+
+#add-project-btn:hover {
+}

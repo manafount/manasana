@@ -89,8 +89,7 @@ class Header extends React.Component {
                          anchorEl={this.state.anchorEl}
                          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
                          targetOrigin={{horizontal: 'left', vertical: 'top'}}
-                         onRequestClose={this.toggleTeamsDropdown}
-                         animation={PopoverAnimationVertical}>
+                         onRequestClose={this.toggleTeamsDropdown}>
                   <Menu value={(this.props.currentTeam) ? this.props.currentTeam.id : null}
                         onChange={this.selectTeam}>
                     {teamList}
