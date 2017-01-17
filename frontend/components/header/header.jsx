@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { logout } from '../../util/session_api_util';
-import DropDownMenu from 'material-ui/DropDownMenu';
+import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
+import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 
 class Header extends React.Component {
@@ -28,13 +29,19 @@ class Header extends React.Component {
     this.props.fetchTeams();
   }
 
-  toggleTeamsDropdown() {
-    this.setState( { teamsExpanded: !this.state.teamsExpanded });
+  toggleTeamsDropdown(e) {
+    console.log(e);
+
+    console.log('toggled');
+    this.setState( {
+      teamsExpanded: !this.state.teamsExpanded,
+      anchorEl: e.currentTarget
+     });
   }
 
-  selectTeam(id) {
+  selectTeam(e, id) {
     this.props.fetchTeam(id);
-    this.toggleTeamsDropdown();
+    this.toggleTeamsDropdown(e);
   }
 
   render() {
@@ -42,10 +49,10 @@ class Header extends React.Component {
 
     if (this.props.teams) {
       teamList = Object.keys(this.props.teams).map((id) => (
-        <li key={id}
-            onClick={() => this.selectTeam(this.props.teams[id].id)}>
-          {this.props.teams[id].name}
-        </li>
+        <MenuItem key={id}
+                  value={this.props.teams[id].id}
+                  primaryText={this.props.teams[id].name}>
+        </MenuItem>
       ));
     }
 
@@ -78,12 +85,17 @@ class Header extends React.Component {
                   onClick={this.toggleTeamsDropdown}>
                   My Teams
                 </a>
-                <div id="team-list"
-                     className={ this.state.teamsExpanded ? "expanded" : "collapsed"}>
-                     <ul>
-                       {teamList}
-                     </ul>
-                </div>
+                <Popover open={this.state.teamsExpanded}
+                         anchorEl={this.state.anchorEl}
+                         anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+                         targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                         onRequestClose={this.toggleTeamsDropdown}
+                         animation={PopoverAnimationVertical}>
+                  <Menu value={(this.props.currentTeam) ? this.props.currentTeam.id : null}
+                        onChange={this.selectTeam}>
+                    {teamList}
+                  </Menu>
+              </Popover>
               </li>
               <li>
                 <Link to="/calendar"
