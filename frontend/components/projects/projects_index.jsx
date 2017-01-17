@@ -7,7 +7,6 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 class ProjectsIndex extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
 
