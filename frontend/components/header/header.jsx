@@ -4,16 +4,21 @@ import { logout } from '../../util/session_api_util';
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+import Avatar from 'material-ui/Avatar';
+import muiThemeable from 'material-ui/styles/muiThemeable';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      teamsExpanded: false
+      teamsExpanded: false,
+      drawerOpen: false
     };
+    console.log(props);
     this.handleLogout = this.handleLogout.bind(this);
     this.toggleTeamsDropdown = this.toggleTeamsDropdown.bind(this);
     this.selectTeam = this.selectTeam.bind(this);
+    this.createLetterAvatar = this.createLetterAvatar.bind(this);
   }
 
   handleLogout() {
@@ -29,17 +34,38 @@ class Header extends React.Component {
     this.props.fetchTeams();
   }
 
-  toggleTeamsDropdown(e) {
-    console.log(e);
+  createLetterAvatar(user, color1 = this.props.muiTheme.palette.primary1Color, color2 = 'white'){
 
-    console.log('toggled');
+    console.log(user);
+    console.log(color1);
+    let initials = user.name.split(' ').map((name)=>(name.charAt(0)));
+    if (initials.length > 1){
+      initials = initials[0].toUpperCase().concat(initials[1].toUpperCase());
+    }else{
+      initials = initials[0].toUpperCase();
+    }
+    console.log(initials);
+    return (
+      <Avatar
+          color={color2}
+          backgroundColor={color1}
+          size={30}
+          style={{margin:'5px'}}>
+          {initials}
+      </Avatar>
+    );
+  }
+
+  toggleTeamsDropdown(e) {
     this.setState( {
       teamsExpanded: !this.state.teamsExpanded,
-      anchorEl: e.currentTarget
+      anchorEl: (e.currentTarget) ? e.currentTarget.parentElement : this.state.anchorEl
      });
   }
 
   selectTeam(e, id) {
+    e.preventDefault();
+
     this.props.fetchTeam(id);
     this.toggleTeamsDropdown(e);
   }
@@ -104,11 +130,9 @@ class Header extends React.Component {
               </li>
             </ul>
             <div className="user-profile">
-              <Link to="/login"
-                data-target="#login"
-                onClick={this.handleLogout}>
-                Log Out
-              </Link>
+              <a href="#">
+                {(this.props.user) ? this.createLetterAvatar(this.props.user) : ""}
+              </a>
             </div>
           </div>
         </div>
@@ -117,4 +141,4 @@ class Header extends React.Component {
   }
 }
 
-export default withRouter(Header);
+export default muiThemeable()(withRouter(Header));

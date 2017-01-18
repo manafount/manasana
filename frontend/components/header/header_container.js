@@ -5,6 +5,7 @@ import { fetchTeam, fetchTeams, createTeam } from '../../actions/team_actions';
 import Header from './header';
 
 const mapStateToProps = (state) => ({
+  user: state.session.currentUser,
   teams: state.teams,
   currentTeam: state.currentTeam
 });
