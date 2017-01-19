@@ -1,32 +1,31 @@
 import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
 import { receiveTeam, receiveTeams, receiveTeamErrors } from '../actions/team_actions';
 
-export const createTeam = (team) => {
+export const createProject = (project) => {
   return $.ajax({
     method: 'POST',
-    url: '/api/teams',
-    data: team
+    url: '/api/projects',
+    data: project
   });
 };
 
-export const fetchTeams = () => {
+export const fetchProjects = (team) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/teams'
+    url: '/api/projects'
   });
 };
 
-export const fetchTeam = (id) => {
+export const fetchProject = (id) => {
   return $.ajax({
     method: 'GET',
-    url: `/api/teams/${id}`
+    url: `/api/projects/${id}`
   });
 };
 
-export const editTeam = (team) => {
+export const deleteProject = (id) => {
   return $.ajax({
-    method: 'PATCH',
-    url: `/api/teams/${team.id}`,
-    data: team
+    method: 'DELETE',
+    url: `/api/projects/${id}`
   });
 };

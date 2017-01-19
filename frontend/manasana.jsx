@@ -6,11 +6,12 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
 import { login, logout, signup } from './util/session_api_util';
+import { createProject, fetchProject, fetchProjects } from './actions/project_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  window.login = login;
-  window.logout = logout;
-  window.signup = signup;
+  window.createProject = createProject;
+  window.fetchProject = fetchProject;
+  window.fetchProjects = fetchProjects;
   injectTapEventPlugin();
 
   let store;

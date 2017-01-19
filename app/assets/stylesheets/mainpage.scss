@@ -86,8 +86,7 @@ i.material-icons {
   height: 100%;
   left: -220px;
   transition: 0.5s;
-  width: 220px;
-  background: $darkest-blue;
+  width: 220px;;
   display: flex;
   flex-direction: column;
 
@@ -117,7 +116,8 @@ i.material-icons {
 }
 
 .user-profile {
-  width: 60px;
+  padding-left: 100px;
+  width: 100px;
   margin-left: auto;
 }
 

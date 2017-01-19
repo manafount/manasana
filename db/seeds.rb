@@ -19,3 +19,8 @@ Membership.destroy_all
 User.all.each do |user|
   Membership.create(user: user, team: Team.first)
 end
+
+Project.destroy_all
+Project.create(name: Faker::Company.catch_phrase, description: Faker::Company.bs, team: Team.first)
+Project.create(name: Faker::Company.catch_phrase, description: Faker::Company.bs, team: Team.first)
+Project.create(name: Faker::Company.catch_phrase, description: Faker::Company.bs, team: Team.first)

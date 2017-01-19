@@ -14,7 +14,6 @@ class Header extends React.Component {
       teamsExpanded: false,
       drawerOpen: false
     };
-    console.log(props);
     this.handleLogout = this.handleLogout.bind(this);
     this.toggleTeamsDropdown = this.toggleTeamsDropdown.bind(this);
     this.selectTeam = this.selectTeam.bind(this);
@@ -35,18 +34,15 @@ class Header extends React.Component {
   }
 
   createLetterAvatar(user, color1 = this.props.muiTheme.palette.primary1Color, color2 = 'white'){
-
-    console.log(user);
-    console.log(color1);
     let initials = user.name.split(' ').map((name)=>(name.charAt(0)));
     if (initials.length > 1){
       initials = initials[0].toUpperCase().concat(initials[1].toUpperCase());
     }else{
       initials = initials[0].toUpperCase();
     }
-    console.log(initials);
     return (
       <Avatar
+          className="colored-avatar"
           color={color2}
           backgroundColor={color1}
           size={30}

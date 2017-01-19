@@ -10,24 +10,7 @@ class TeamList extends React.Component {
   render() {
     return (
       <div className="team-list">
-        <div className="add-member">
-        </div>
-        <div className="circle-avatar-sm">
-        </div>
-        <div className="empty-sm">
-        </div>
-        <div className="empty-sm">
-        </div>
-        <div className="empty-sm">
-        </div>
-        <div className="empty-sm">
-        </div>
-        <div className="empty-sm">
-        </div>
-        <div className="empty-sm">
-        </div>
-        <div className="circle-plus-sm">
-        </div>
+
       </div>
     );
   }

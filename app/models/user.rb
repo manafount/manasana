@@ -33,7 +33,7 @@ class User < ApplicationRecord
   source: :team
 
   has_many :projects,
-  through: :tasks,
+  through: :teams,
   source: :projects
 
   has_many :teammates,

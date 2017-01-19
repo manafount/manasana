@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import TeamList from './team_list';
+import muiThemeable from 'material-ui/styles/muiThemeable';
 
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      bgcolor: this.props.muiTheme.palette.primary2Color
+    };
   }
 
   expandSidebar() {
@@ -18,7 +22,8 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div className="z-depth-2"
-           id="sidebar-wrapper">
+           id="sidebar-wrapper"
+           style={{background: this.state.bgcolor}}>
         <div className="sidebar-header">
           <div className=""
             id="logo">
@@ -43,4 +48,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default withRouter(Sidebar);
+export default muiThemeable()(withRouter(Sidebar));
