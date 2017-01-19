@@ -17,7 +17,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find_by(params[:id])
+    @project = Project.find_by_id(params[:id])
     if @project.update(project_params)
       render :show
     else
@@ -26,10 +26,10 @@ class Api::ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find_by(params[:id])
-    if @project.contributors.include?(@user)
+    @project = Project.find_by_id(params[:id])
+    if @project.contributors.include?(current_user)
       @project.destroy
-      render :index
+      render :show
     else
       render(
         json: ["Unable to delete project"],

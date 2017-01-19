@@ -43,6 +43,7 @@ class ProjectForm extends React.Component {
     });
     this.props.createProject({ project })
       .then(() => this.props.fetchProjects(this.props.currentTeam.id));
+    this.handleClose();
   }
 
   render() {

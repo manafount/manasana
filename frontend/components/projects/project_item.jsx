@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import merge from 'lodash/merge';
 import Paper from 'material-ui/Paper';
+import IconButton from 'material-ui/IconButton';
+import FontIcon from 'material-ui/FontIcon';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
 class ProjectItem extends React.Component {
@@ -28,7 +30,7 @@ class ProjectItem extends React.Component {
   }
 
   render() {
-    const { project , updateProject } = this.props;
+    const { project, deleteProject, updateProject } = this.props;
     const { name, description } = project;
 
     return (
@@ -36,8 +38,15 @@ class ProjectItem extends React.Component {
              zDepth={this.state.zDepth}
              onMouseEnter={this.handleHover}
              onMouseLeave={this.handleLeave}>
-        <div className="project-header">
+        <div className="project-item-header">
           {name}
+          <IconButton
+            iconClassName="material-icons"
+            tooltip="Delete Project"
+            tooltipPosition="bottom-left"
+            onClick={() => deleteProject(project.id)}>
+            close
+          </IconButton>
         </div>
         <br/>
         <div>

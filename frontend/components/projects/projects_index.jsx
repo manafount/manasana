@@ -32,7 +32,8 @@ class ProjectsIndex extends React.Component {
     };
 
     let projectItems;
-    const { projects, createProject, updateProject, fetchProject, errors } = this.props;
+    const { projects, createProject, updateProject,
+            deleteProject, fetchProject, errors } = this.props;
 
     if (projects) {
       console.log(projects);
@@ -40,7 +41,8 @@ class ProjectsIndex extends React.Component {
         <ProjectItem
           key={ id }
           project={ projects[id] }
-          updateProject={ updateProject } />
+          updateProject={ updateProject }
+          deleteProject={ deleteProject }/>
       ));
     }else{
       projectItems='';

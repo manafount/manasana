@@ -13,6 +13,13 @@
   width: 300px;
 }
 
+.project-item-header {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  justify-content: space-between;
+}
+
 .add-project {
   background: white;
   margin: 10px;
