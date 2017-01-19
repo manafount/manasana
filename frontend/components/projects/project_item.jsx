@@ -7,6 +7,24 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 class ProjectItem extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      zDepth: 1
+    };
+
+    this.handleHover = this.handleHover.bind(this);
+    this.handleLeave = this.handleLeave.bind(this);
+  }
+
+  handleHover(mousedOver) {
+    this.setState({
+      zDepth: 2
+    });
+  }
+
+  handleLeave() {
+    this.setState({
+      zDepth: 1
+    });
   }
 
   render() {
@@ -15,7 +33,9 @@ class ProjectItem extends React.Component {
 
     return (
       <Paper className="project-item"
-             zDepth={1}>
+             zDepth={this.state.zDepth}
+             onMouseEnter={this.handleHover}
+             onMouseLeave={this.handleLeave}>
         <div className="project-header">
           {name}
         </div>

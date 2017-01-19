@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ProjectsIndex from './projects_index';
+import ProjectForm from './project_form';
 import { fetchProject, fetchProjects, updateProject, createProject } from '../../actions/project_actions';
 
 const mapStateToProps = (state) => ({
@@ -11,11 +11,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchProject: (id) => dispatch(fetchProject(id)),
-  fetchProjects: (team) => dispatch(fetchProjects(team))
+  fetchProjects: (id) => dispatch(fetchProjects(id)),
+  createProject: (project) => dispatch(createProject(project)),
+  updateProject: (project) => dispatch(updateProject(project))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProjectsIndex);
+)(ProjectForm);

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-User.create(email: "demo.user@manasana.io", name: "Matt", password: "demouser")
+User.create(email: "demo.user@manasana.io", name: "Matt K", password: "demouser")
 5.times do |i|
   User.create(email: Faker::Internet.email, name: Faker::Name.name, password: "password#{i}")
 end
