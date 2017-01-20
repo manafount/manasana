@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import TeamList from './team_list';
+import IconButton from 'material-ui/IconButton';
+import FontIcon from 'material-ui/FontIcon';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
 class Sidebar extends React.Component {
@@ -11,7 +13,7 @@ class Sidebar extends React.Component {
     };
   }
 
-  expandSidebar() {
+  closeSidebar() {
     $('#sidebar-wrapper').toggleClass('sidebar-active');
   }
 
@@ -29,13 +31,14 @@ class Sidebar extends React.Component {
             id="logo">
             manasana
           </div>
-          <div>
-            <a href="#"
-               id="close-sidebar"
-               onClick={this.expandSidebar}>
-              <i className="fa fa-times"></i>
-            </a>
-          </div>
+          <IconButton
+            onClick={this.closeSidebar}>
+            <FontIcon className="material-icons"
+                      color="white"
+                      hoverColor="black">
+              close
+            </FontIcon>
+          </IconButton>
         </div>
         <div className="sidebar-main">
           <div className="sidebar-category">

@@ -73,6 +73,7 @@ i.material-icons {
 
 .main-page {
     width: 100%;
+    height: 100%;
     background: #F5F5F5;
 }
 
@@ -92,7 +93,9 @@ i.material-icons {
 
   .sidebar-header {
     display: flex;
-    justify-content: space-around;
+    margin-left: 20px;
+    width: calc(100% - 20px);
+    justify-content: space-between;
     height: 48px;
     padding-bottom: 80px;
   }
@@ -120,6 +123,7 @@ i.material-icons {
   width: 100px;
   margin-left: auto;
 }
+
 
 .sidebar-main {
   padding-left: 18px;

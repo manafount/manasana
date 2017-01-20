@@ -4,6 +4,7 @@ import merge from 'lodash/merge';
 import Paper from 'material-ui/Paper';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
+import Divider from 'material-ui/Divider';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
 class ProjectItem extends React.Component {
@@ -29,6 +30,10 @@ class ProjectItem extends React.Component {
     });
   }
 
+  redirectToProject(id){
+    this.props.router.replace(`/projects/${id}`);
+  }
+
   render() {
     const { project, deleteProject, updateProject } = this.props;
     const { name, description } = project;
@@ -37,17 +42,19 @@ class ProjectItem extends React.Component {
       <Paper className="project-item"
              zDepth={this.state.zDepth}
              onMouseEnter={this.handleHover}
-             onMouseLeave={this.handleLeave}>
+             onMouseLeave={this.handleLeave}
+             onTouchTap={() => this.redirectToProject(project.id)}>
         <div className="project-item-header">
           {name}
           <IconButton
             iconClassName="material-icons"
             tooltip="Delete Project"
             tooltipPosition="bottom-left"
-            onClick={() => deleteProject(project.id)}>
+            onTouchTap={() => deleteProject(project.id)}>
             close
           </IconButton>
         </div>
+        <Divider/>
         <br/>
         <div>
           {description}

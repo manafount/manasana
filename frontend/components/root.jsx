@@ -8,6 +8,7 @@ import SplashContainer from './splash/splash_container';
 import Splash from './splash/splash';
 import App from './app';
 import Dashboard from './dashboard/dashboard';
+import TasksIndexContainer from './tasks/tasks_index_container';
 
 const Root = ({ store }) => {
 
@@ -31,6 +32,7 @@ const Root = ({ store }) => {
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <IndexRoute component={Dashboard} onEnter={_ensureLoggedIn}/>
+          <Route path="/projects/:projectId" component={TasksIndexContainer} onEnter={_ensureLoggedIn}/>
         </Route>
         <Route path="/login" component={SplashContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="/signup" component={SplashContainer} onEnter={_redirectIfLoggedIn} />

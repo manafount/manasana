@@ -51,7 +51,7 @@ class ProjectsIndex extends React.Component {
     return (
       <div className="project-list">
         <ProjectFormContainer className="project-form"
-                     customWidth={customWidth}/>
+                              customWidth={customWidth}/>
         {projectItems}
       </div>
     );
