@@ -34,16 +34,25 @@ class TaskItem extends React.Component {
   }
 
   render() {
-    const { task, deleteTask, updateTask } = this.props;
-    const { name, description, due, completed } = task;
+    if (this.props.task){
+      const { task, deleteTask, updateTask } = this.props;
+      const { name, description, due, completed } = task;
 
-    return (
-      <ListItem
-        leftCheckbox={<Checkbox />}
-        primaryText={name}
-        secondaryText={description}
-      />
-    );
+      return (
+        <ListItem
+          leftCheckbox={
+            <Checkbox checked={task.completed}
+                      onCheck={() => updateTask(task)}/>
+          }
+          primaryText={name}
+          secondaryText={description}
+          />
+      );
+    }else{
+      return (
+        <div></div>
+      );
+    }
   }
 }
 

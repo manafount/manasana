@@ -27,10 +27,6 @@ class TaskList extends React.Component {
     this.handleRequestClose = this.handleRequestClose.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchTasks(this.props.projectId);
-  }
-
   handleAddButton (event) {
     event.preventDefault();
     this.setState({

@@ -13,8 +13,9 @@ import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
-import TaskList from './task_item';
+import TaskList from './task_list';
 import TaskDetail from './task_detail';
+import TaskItem from './task_item';
 
 class TasksIndex extends React.Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class TasksIndex extends React.Component {
   render() {
     let taskItems;
     const { tasks, createTask, updateTask,
-            deleteTask, fetchTask, errors } = this.props;
+            deleteTask, fetchTasks, fetchTask, errors } = this.props;
 
     if (tasks) {
       taskItems = Object.keys(tasks).map(id => (
@@ -66,34 +67,15 @@ class TasksIndex extends React.Component {
 
     return (
       <div className="tasks-container">
-        <Paper className="tasks-list"
-               style={{overflow: 'scroll'}}>
-          <div className="list-header">
-            <FloatingActionButton mini={true}
-              zDepth={1}
-              style={{margin: '15px'}}
-              onTouchTap={this.handleAddButton}>
-             <ContentAdd />
-           </FloatingActionButton>
-           <Popover
-              open={this.state.addOpen}
-              anchorEl={this.state.anchorEl}
-              anchorOrigin={{horizontal: "right", vertical: "top"}}
-              targetOrigin={{horizontal: "left", vertical: "top"}}
-              onRequestClose={this.handleRequestClose}>
-              <Menu>
-                <MenuItem primaryText="Add Task" />
-                <MenuItem primaryText="Add Section" />
-              </Menu>
-            </Popover>
-          </div>
-          <div className="list-body">
-            <List>
-              <Subheader>Important Tasks</Subheader>
-              {taskItems}
-            </List>
-          </div>
-        </Paper>
+        <TaskList taskItems={taskItems}
+                  tasks={tasks}
+                  createTask={createTask}
+                  updateTask={updateTask}
+                  deleteTask={deleteTask}
+                  fetchTask={fetchTask}
+                  fetchTasks={fetchTasks}
+                  errors={errors}/>
+        <TaskDetail />
       </div>
     );
   }

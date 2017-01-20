@@ -40,21 +40,27 @@ class TaskDetail extends React.Component {
   }
 
   render() {
-    const { task, deleteTask, updateTask } = this.props;
-    const { name, description, due, completed } = task;
+    if (this.props.task){
+      const { task, deleteTask, updateTask } = this.props;
+      const { name, description, due, completed } = task;
 
-    return (
-      <div className="task-detail-container">
-        <Paper className="tasks-list"
-               style={{overflow: 'scroll'}}>
-          <div className="detail-header">
+      return (
+        <div className="task-detail-container">
+          <Paper className="tasks-list"
+            style={{overflow: 'scroll'}}>
+            <div className="detail-header">
 
-          </div>
-          <div className="detail-body">
-          </div>
-        </Paper>
-      </div>
-    );
+            </div>
+            <div className="detail-body">
+            </div>
+          </Paper>
+        </div>
+      );
+    }else{
+      return (
+        <div></div>
+      );
+    }
   }
 }
 

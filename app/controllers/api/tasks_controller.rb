@@ -1,6 +1,10 @@
 class Api::TasksController < ApplicationController
   def index
-    @tasks = current_user.tasks
+    if params[:project_id]
+      @tasks = Task.where("author_id = ?", current_user.id).where("project_id = ?", params[:project_id])
+    else
+      @tasks = Task.where("author_id = ?", current_user.id)
+    end
   end
 
   def show
@@ -18,7 +22,8 @@ class Api::TasksController < ApplicationController
 
   def update
     @task = Task.find_by_id(params[:id])
-    if @task.update(task_params)
+    @task.completed = !@task.completed
+    if @task.save
       render :show
     else
       render json: @task.errors.full_messages, status: 422
