@@ -34,7 +34,6 @@ class TaskList extends React.Component {
       due: null
     };
 
-    console.log(this.props);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

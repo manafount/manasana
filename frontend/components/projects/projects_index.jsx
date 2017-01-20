@@ -36,7 +36,6 @@ class ProjectsIndex extends React.Component {
             deleteProject, fetchProject, errors } = this.props;
 
     if (projects) {
-      console.log(projects);
       projectItems = Object.keys(projects).map(id => (
         <ProjectItem
           key={ id }
