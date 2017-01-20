@@ -24,3 +24,10 @@ Project.destroy_all
 Project.create(name: Faker::Company.catch_phrase, description: Faker::Company.bs, team: Team.first)
 Project.create(name: Faker::Company.catch_phrase, description: Faker::Company.bs, team: Team.first)
 Project.create(name: Faker::Company.catch_phrase, description: Faker::Company.bs, team: Team.first)
+
+Task.destroy_all
+Project.all.each do |project|
+  10.times do |i|
+    Task.create(name: Faker::Company.catch_phrase, description: Faker::Company.bs, author: User.first, project: project)
+  end
+end

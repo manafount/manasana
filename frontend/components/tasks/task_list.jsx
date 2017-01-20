@@ -13,10 +13,9 @@ import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
-import TaskList from './task_item';
-import TaskDetail from './task_detail';
+import TaskItem from './task_item';
 
-class TasksIndex extends React.Component {
+class TaskList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -99,4 +98,4 @@ class TasksIndex extends React.Component {
   }
 }
 
-export default muiThemeable()(withRouter(TasksIndex));
+export default muiThemeable()(withRouter(TaskList));

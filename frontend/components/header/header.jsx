@@ -82,28 +82,25 @@ class Header extends React.Component {
       <div className="header-nav z-depth-1">
         <div id="header-wrapper">
           <div className="show-sidebar-menu">
-            <a href="#"
-              onClick={this.expandSidebar}>
+            <a style={{cursor: 'pointer'}}
+               onClick={this.expandSidebar}>
               <i className="small material-icons">reorder</i>
             </a>
           </div>
           <div className="header-container">
             <ul className="header-links">
               <li>
-                <a href="#/"
-                      data-target="#dashboard">
-                      Dashboard
+                <a href="#/">
+                  Dashboard
                 </a>
               </li>
               <li>
-                <Link to="/tasks"
-                      data-target="#tasks">
-                      My Tasks
+                <Link to="/tasks">
+                  My Tasks
                 </Link>
               </li>
               <li>
-                <a href="#"
-                  className="teams-dropdown"
+                <a className="teams-dropdown"
                   onClick={this.toggleTeamsDropdown}>
                   My Teams
                 </a>
@@ -119,10 +116,9 @@ class Header extends React.Component {
               </Popover>
               </li>
               <li>
-                <Link to="/calendar"
-                      data-target="#calendar">
-                      Calendar
-                </Link>
+                <a>
+                  Calendar
+                </a>
               </li>
             </ul>
             <div className="user-profile">

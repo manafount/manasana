@@ -24,6 +24,10 @@
   justify-content: space-between;
 }
 
+.project-item-header:hover {
+  cursor: pointer;
+}
+
 .add-project {
   background: white;
   margin: 10px;

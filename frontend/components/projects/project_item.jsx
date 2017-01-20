@@ -42,10 +42,11 @@ class ProjectItem extends React.Component {
       <Paper className="project-item"
              zDepth={this.state.zDepth}
              onMouseEnter={this.handleHover}
-             onMouseLeave={this.handleLeave}
-             onTouchTap={() => this.redirectToProject(project.id)}>
+             onMouseLeave={this.handleLeave}>
         <div className="project-item-header">
-          {name}
+          <div onTouchTap={() => this.redirectToProject(project.id)}>
+            {name}
+          </div>
           <IconButton
             iconClassName="material-icons"
             tooltip="Delete Project"
@@ -56,7 +57,7 @@ class ProjectItem extends React.Component {
         </div>
         <Divider/>
         <br/>
-        <div>
+        <div >
           {description}
         </div>
       </Paper>
