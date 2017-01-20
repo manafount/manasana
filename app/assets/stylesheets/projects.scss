@@ -1,9 +1,10 @@
 .project-list {
   margin-top: 20px;
-  margin-left: 220px;
+  padding: 0 110px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .project-item {

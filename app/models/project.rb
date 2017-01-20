@@ -13,7 +13,8 @@
 class Project < ApplicationRecord
   validates :name, :team_id, presence: true
 
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
+
   belongs_to :team
 
   has_many :contributors,

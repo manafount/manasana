@@ -10,6 +10,11 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog';
+import SelectField from 'material-ui/SelectField';
+import Snackbar from 'material-ui/Snackbar';
 import Checkbox from 'material-ui/Checkbox';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
@@ -20,31 +25,88 @@ class TaskList extends React.Component {
     super(props);
 
     this.state = {
-      addOpen: false
+      open: false,
+      snacks: false,
+      name: "",
+      description: "",
+      project_id: this.props.projectId,
+      author_id: this.props.user.id,
+      due: null
     };
 
-    this.handleAddButton = this.handleAddButton.bind(this);
-    this.handleRequestClose = this.handleRequestClose.bind(this);
+    console.log(this.props);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.updateDue = this.updateDue.bind(this);
+    this.updateDescription = this.updateDescription.bind(this);
+    this.closeSnacks = this.closeSnacks.bind(this);
   }
 
-  handleAddButton (event) {
-    event.preventDefault();
+  handleOpen() {
+    this.setState({open: true});
+  }
+
+  handleClose() {
+    this.setState({open: false});
+  }
+
+  updateName(e, index, value) {
+    e.preventDefault();
+    this.setState({name: e.target.value});
+  }
+
+  updateDue(e, index, value) {
+    e.preventDefault();
+    this.setState({due: value});
+  }
+
+  updateDescription(e, index, value) {
+    e.preventDefault();
+    this.setState({description: e.target.value});
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const task = Object.assign({}, {
+      name: this.state.name,
+      due: this.state.due,
+      project_id: this.state.project_id,
+      author_id: this.state.author_id,
+      description: this.state.description
+    });
+    this.props.createTask({ task })
+      .then(this.setState({snacks: true}));
+    this.handleClose();
     this.setState({
-      addOpen: true,
-      anchorEl: event.currentTarget,
+      open: false,
+      snacks: false,
+      name: "",
+      description: "",
+      due: null
     });
   }
 
-  handleRequestClose () {
-    this.setState({
-      addOpen: false,
-    });
+  closeSnacks() {
+    this.setState({snacks: false});
   }
-
 
   render() {
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onTouchTap={this.handleClose}/>,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        disabled={(this.state.name === "")}
+        onTouchTap={this.handleSubmit}/>
+    ];
+
     let taskItems;
-    const { tasks, createTask, updateTask,
+    const { tasks, createTask, updateTask, userTasks,
             deleteTask, fetchTask, errors } = this.props;
 
     if (tasks) {
@@ -58,29 +120,54 @@ class TaskList extends React.Component {
     }else{
       taskItems='';
     }
+    let button = (
+      <FloatingActionButton mini={true}
+        zDepth={1}
+        style={{margin: '15px'}}
+        onTouchTap={this.handleOpen}>
+        <ContentAdd />
+      </FloatingActionButton>
+    );
+
+    if (userTasks){
+      button = undefined;
+    }
 
     return (
       <div className="tasks-container">
         <Paper className="tasks-list"
-               style={{overflow: 'scroll'}}>
+               style={{overflowY: 'scroll'}}>
           <div className="list-header">
-            <FloatingActionButton mini={true}
-              zDepth={1}
-              style={{margin: '15px'}}
-              onTouchTap={this.handleAddButton}>
-             <ContentAdd />
-           </FloatingActionButton>
-           <Popover
-              open={this.state.addOpen}
-              anchorEl={this.state.anchorEl}
-              anchorOrigin={{horizontal: "right", vertical: "top"}}
-              targetOrigin={{horizontal: "left", vertical: "top"}}
-              onRequestClose={this.handleRequestClose}>
-              <Menu>
-                <MenuItem primaryText="Add Task" />
-                <MenuItem primaryText="Add Section" />
-              </Menu>
-            </Popover>
+            {button}
+
+           <Dialog
+             contentClassName="add-project-dialog"
+             title="Add A Task"
+             titleStyle={{borderBottom: '1px solid #F5F5F5'}}
+             actions={actions}
+             modal={false}
+             contentStyle={this.props.customWidth}
+             open={this.state.open}
+             onRequestClose={this.handleClose}>
+             <div className="dialog-content"
+                  style={{display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}>
+               <TextField floatingLabelText="Task Title"
+                 errorText={(this.state.name === "") && 'Required'}
+                 onChange={this.updateName}/>
+               <TextField floatingLabelText="Task Description"
+                 onChange={this.updateDescription}/>
+             </div>
+           </Dialog>
+           <Snackbar
+            open={this.state.snacks}
+            message="Task successfully created!"
+            autoHideDuration={3000}
+            onRequestClose={this.closeSnacks}/>
+
           </div>
           <div className="list-body">
             <List>

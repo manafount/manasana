@@ -17,10 +17,10 @@ class Team < ApplicationRecord
   has_many :members,
   through: :memberships,
   source: :user
-  
+
   belongs_to :leader,
   foreign_key: :leader_id,
   class_name: :User
 
-  has_many :projects
+  has_many :projects, dependent: :destroy
 end

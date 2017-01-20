@@ -3,6 +3,10 @@
   height: 100%;
 }
 
+html * {
+  font-family: Roboto;
+}
+
 .header-nav {
   height: 48px;
   line-height: 48px;
@@ -54,8 +58,7 @@ i.material-icons {
 }
 
 .header-links {
-  margin: 0;
-  margin-left: 200px;
+  margin: 0 20px;
   width: 50%;
   min-width: 500px;
   display: flex;

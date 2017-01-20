@@ -2,11 +2,19 @@ import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
 import { receiveTeam, receiveTeams, receiveTeamErrors } from '../actions/team_actions';
 
 export const createTask = (task) => {
-  return $.ajax({
-    method: 'POST',
-    url: `/api/projects/${task.project.id}`,
-    data: {task}
-  });
+  if (task.task.project_id){
+    return $.ajax({
+      method: 'POST',
+      url: `/api/projects/${task.task.project_id}/tasks`,
+      data: task
+    });
+  }else{
+    return $.ajax({
+      method: 'POST',
+      url: `/api/tasks`,
+      data: task
+    });
+  }
 };
 
 

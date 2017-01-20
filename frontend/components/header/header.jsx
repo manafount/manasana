@@ -81,12 +81,6 @@ class Header extends React.Component {
     return (
       <div className="header-nav z-depth-1">
         <div id="header-wrapper">
-          <div className="show-sidebar-menu">
-            <a style={{cursor: 'pointer'}}
-               onClick={this.expandSidebar}>
-              <i className="small material-icons">reorder</i>
-            </a>
-          </div>
           <div className="header-container">
             <ul className="header-links">
               <li>
@@ -115,15 +109,11 @@ class Header extends React.Component {
                   </Menu>
               </Popover>
               </li>
-              <li>
-                <a>
-                  Calendar
-                </a>
-              </li>
             </ul>
-            <div className="user-profile">
-              <a href="#">
-                {(this.props.user) ? this.createLetterAvatar(this.props.user) : ""}
+            <div style={{marginLeft: 'auto', marginRight: '20px'}}>
+              <a className="logout-button"
+                onClick={this.handleLogout}>
+                Logout
               </a>
             </div>
           </div>
@@ -134,3 +124,15 @@ class Header extends React.Component {
 }
 
 export default muiThemeable()(withRouter(Header));
+
+// <div className="show-sidebar-menu">
+//   <a style={{cursor: 'pointer'}}
+//      onClick={this.expandSidebar}>
+//     <i className="small material-icons">reorder</i>
+//   </a>
+// </div>
+// <div className="user-profile">
+//   <a href="#">
+//     {(this.props.user) ? this.createLetterAvatar(this.props.user) : ""}
+//   </a>
+// </div>

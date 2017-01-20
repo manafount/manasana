@@ -17,7 +17,7 @@ import TaskList from './task_list';
 import TaskDetail from './task_detail';
 import TaskItem from './task_item';
 
-class TasksIndex extends React.Component {
+class UserTasksIndex extends React.Component {
   constructor(props) {
     super(props);
 
@@ -30,7 +30,7 @@ class TasksIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchTasks(this.props.projectId);
+    this.props.fetchTasks();
   }
 
   handleAddButton (event) {
@@ -71,7 +71,7 @@ class TasksIndex extends React.Component {
                   projectId={projectId}
                   tasks={tasks}
                   user={user}
-                  userTasks={false}
+                  userTasks={true}
                   createTask={createTask}
                   updateTask={updateTask}
                   deleteTask={deleteTask}
@@ -84,4 +84,4 @@ class TasksIndex extends React.Component {
   }
 }
 
-export default muiThemeable()(withRouter(TasksIndex));
+export default muiThemeable()(withRouter(UserTasksIndex));
