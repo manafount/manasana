@@ -41,6 +41,15 @@ hr.or:after {
   justify-content: space-between;
 }
 
+.login-footer-right > a {
+  color: #FAFAFA;
+  text-decoration: underline dotted;
+}
+
+.login-footer-right > a:hover {
+  color: #F50057
+}
+
 .right-align {
   display: flex;
   flex-direction: row-reverse;

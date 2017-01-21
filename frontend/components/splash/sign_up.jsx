@@ -112,7 +112,6 @@ class SignUp extends React.Component {
           </Card>
           <div className="login-footer">
             <div className="login-footer-left">
-              Link 1 | Link 2 | Link 3
             </div>
             <div className="login-footer-right">
               Already have an account? <Link to="/login">Log In!</Link>
