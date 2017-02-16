@@ -124,15 +124,3 @@ class Header extends React.Component {
 }
 
 export default muiThemeable()(withRouter(Header));
-
-// <div className="show-sidebar-menu">
-//   <a style={{cursor: 'pointer'}}
-//      onClick={this.expandSidebar}>
-//     <i className="small material-icons">reorder</i>
-//   </a>
-// </div>
-// <div className="user-profile">
-//   <a href="#">
-//     {(this.props.user) ? this.createLetterAvatar(this.props.user) : ""}
-//   </a>
-// </div>
