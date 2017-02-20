@@ -12,9 +12,9 @@ User.create(email: "demo.user@manasana.io", name: "Demo User", password: "demous
 end
 
 Team.destroy_all
-Team.create(name: "App Academy", leader: User.first)
-Team.create(name: "Tinder For Cats", leader: User.first)
-Team.create(name: "Smart Garbage", leader: User.first)
+Team.create(name: "Presidio", leader: User.first)
+Team.create(name: "Golden Gate", leader: User.first)
+Team.create(name: "Ocean Beach", leader: User.first)
 
 Membership.destroy_all
 Team.all.each do |team|
