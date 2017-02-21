@@ -15,7 +15,8 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      Team.create(name: "Personal Projects", leader: @user)
+      team = Team.create(name: "Personal Projects", leader: @user)
+      Membership.create(user: @user, team: team)
       render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 422

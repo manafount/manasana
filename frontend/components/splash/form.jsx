@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router';
 import Login from './login';
 import SignUp from './sign_up';
 
-class Splash extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -29,4 +29,4 @@ class Splash extends React.Component {
   }
 }
 
-export default withRouter(Splash);
+export default withRouter(Form);

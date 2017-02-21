@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { login, logout, signup, clearSessionErrors } from '../../actions/session_actions';
-import Splash from './splash';
+import Form from './form';
 
 const mapStateToProps = ({ session }) => ({
   loggedIn: Boolean(session.currentUser),
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch, { location }) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Splash);
+)(Form);

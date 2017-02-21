@@ -4,12 +4,14 @@ import TextField from 'material-ui/TextField';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
+import GoogleLogin from 'react-google-login';
 
 class SignUp extends React.Component {
   constructor(props) {
 		super(props);
 		this.state = { name: "", email: "", password: "" };
 		this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGoogle = this.handleGoogle.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
 	}
 
@@ -40,9 +42,18 @@ class SignUp extends React.Component {
     this.props.processForm({user});
   }
 
-  handleGoogleSignUp(e) {
-    e.preventDefault();
-    console.log("this doesn't actually work lol");
+  handleGoogle(response) {
+    console.log(response);
+    if (response.error){
+      console.log(response.error);
+    }else{
+      this.setState({
+        name: response.profileObj.name,
+        email: response.profileObj.email
+      });
+      const user = this.state;
+      this.props.processForm({user});
+    }
   }
 
   renderErrors() {
@@ -70,14 +81,12 @@ class SignUp extends React.Component {
             <div>
               <h1>Sign Up</h1>
             </div>
-            <div>
-              <RaisedButton onClick={this.handleGoogleSignUp}
-                      className="demo-btn"
-                      label="Google Login"
-                      icon={<FontIcon className="fa fa-google-plus" />}
-                      primary={true}>
-              </RaisedButton>
-            </div>
+            <GoogleLogin
+              clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+              buttonText="Google Login"
+              onSuccess={this.handleGoogle}
+              onFailure={this.handleGoogle}
+            />
             <hr className="or"/>
             <div className="errors">
               {this.renderErrors()}
