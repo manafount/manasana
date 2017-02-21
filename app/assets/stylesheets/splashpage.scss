@@ -56,6 +56,12 @@ hr.or:after {
   width: 80%;
 }
 
+#page-header {
+  height: 60px;
+  width: 100%;
+  position: fixed;
+}
+
 .splash-card > * {
   display: flex;
   flex-direction: column;

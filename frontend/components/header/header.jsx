@@ -21,10 +21,6 @@ class Header extends React.Component {
   }
 
   handleLogout() {
-    let auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-     console.log('User signed out.');
-    });
     this.props.logout()
       .then(() => this.props.router.push('/login'), e => { console.log(e); });
   }

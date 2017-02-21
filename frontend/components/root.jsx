@@ -5,6 +5,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import FormContainer from './splash/form_container';
+import Splash from './splash/splash';
 import Form from './splash/form';
 import App from './app';
 import Dashboard from './dashboard/dashboard';
@@ -23,7 +24,7 @@ const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/app');
     }
   };
 
@@ -31,12 +32,13 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <MuiThemeProvider muiTheme={getMuiTheme()}>
       <Router history={hashHistory}>
-        <Route path="/" component={App} onEnter={_ensureLoggedIn}>
+        <Route path="/app" component={App} onEnter={_ensureLoggedIn}>
           <IndexRoute component={Dashboard} onEnter={_ensureLoggedIn}/>
           <Route path="/projects/:projectId" component={TasksIndexContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/tasks" component={UserTasksIndexContainer} onEnter={_ensureLoggedIn}/>
         </Route>
 
+        <Route path="/" component={Splash} onEnter={_redirectIfLoggedIn} />
         <Route path="/login" component={FormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="/signup" component={FormContainer} onEnter={_redirectIfLoggedIn} />
       </Router>
