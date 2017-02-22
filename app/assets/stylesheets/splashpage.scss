@@ -56,10 +56,37 @@ hr.or:after {
   width: 80%;
 }
 
+.splash-header-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-header-buttons > * {
+  margin-right: 5px;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: hidden;
+}
+
 #page-header {
   height: 60px;
+  top: 0;
+  left: 0;
   width: 100%;
   position: fixed;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+#page-header > * {
+  margin-left: 15px;
+  margin-right: 10px;
 }
 
 .splash-card > * {
@@ -70,12 +97,6 @@ hr.or:after {
   justify-content: space-around;
 }
 
-.splash-title {
-  font-size: 2em;
-  font-family: Lemonada;
-  color: white;
-}
-
 .splash-card {
   min-height: 500px;
   width: 100%;
@@ -83,6 +104,42 @@ hr.or:after {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+.splash-hero {
+  color: white;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5em;
+  }
+  h6 {
+    font-size: 1.25em;
+  }
+}
+
+.splash-title {
+  font-size: 2em;
+  font-family: Lemonada;
+  color: white;
+}
+
+.splash-body {
+  margin-top: 60px;
+  height: 540px;
+}
+
+.splash-footer {
+  background-color: white;
+  flex: 1 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.splash-footer > * {
+  text-align: center;
+  font-size: 1.5em;
 }
 
 .splash-form {
