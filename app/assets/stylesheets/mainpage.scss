@@ -52,9 +52,23 @@ html * {
   color: #999;
 }
 
+.logo-black {
+  font-size: 2em;
+  font-family: Lemonada;
+  color: black;
+}
+
+.logo-black:hover {
+  color: black;
+}
+
 .logo-white {
   font-size: 2em;
   font-family: Lemonada;
+  color: white;
+}
+
+.logo-white:hover {
   color: white;
 }
 

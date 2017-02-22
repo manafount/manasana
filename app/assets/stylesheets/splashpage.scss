@@ -134,10 +134,11 @@ hr.or:after {
   flex: 1 auto;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  // align-items: center;
 }
 
 .splash-footer > * {
+  margin-top: 60px;
   text-align: center;
   font-size: 1.5em;
 }

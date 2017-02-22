@@ -57,9 +57,7 @@ class SignUp extends React.Component {
   render () {
     return (
       <div className="splash-container">
-        <div className="splash-title">
-          manasana
-        </div>
+        <Link className="logo-white" to="/">manasana</Link>
         <div className="splash-form">
           <Card className="splash-card">
             <div>

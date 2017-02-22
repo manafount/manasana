@@ -22,7 +22,7 @@ class Splash extends React.Component {
     return (
       <div className="page-wrapper">
         <div id="page-header">
-          <div className="logo-gray">manasana</div>
+          <Link className="logo-black" to="/">manasana</Link>
           <div className="splash-header-buttons">
             <RaisedButton onClick={() => this.handleRedirect('signup')}
               label="Sign Up"
